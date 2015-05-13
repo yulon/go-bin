@@ -39,9 +39,9 @@ func (w *Writer) QwordB(data interface{}) (int, error) {
 }
 
 func (w *Writer) Cstr(text string) (int, error) {
-	return w.Write(append([]byte(text), 0))
+	return w.Write(Cstr(text))
 }
 
 func (w *Writer) Zeros(size int64) (int, error) {
-	return w.Write(make([]byte, size, size))
+	return w.Write(Zeros(size))
 }

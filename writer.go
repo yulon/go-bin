@@ -38,6 +38,10 @@ func (w *Writer) QwordB(data interface{}) (int, error) {
 	return w.Write(QwordB(data))
 }
 
+func (w *Writer) String(text string) (int, error) {
+	return w.Write([]byte(text))
+}
+
 func (w *Writer) Cstr(text string) (int, error) {
 	return w.Write(Cstr(text))
 }

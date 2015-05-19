@@ -3,49 +3,49 @@ package bin
 import "io"
 
 type Writer struct{
-	io.Writer
+	w io.Writer
 }
 
 func NewWriter(w io.Writer) *Writer {
-	return &Writer{w}
+	return &Writer{ w: w }
 }
 
 func (w *Writer) Byte(data interface{}) (int, error) {
-	return w.Write(Byte(data))
+	return w.w.Write(Byte(data))
 }
 
 func (w *Writer) Word(data interface{}) (int, error) {
-	return w.Write(Word(data))
+	return w.w.Write(Word(data))
 }
 
 func (w *Writer) Dword(data interface{}) (int, error) {
-	return w.Write(Dword(data))
+	return w.w.Write(Dword(data))
 }
 
 func (w *Writer) Qword(data interface{}) (int, error) {
-	return w.Write(Qword(data))
+	return w.w.Write(Qword(data))
 }
 
 func (w *Writer) WordB(data interface{}) (int, error) {
-	return w.Write(WordB(data))
+	return w.w.Write(WordB(data))
 }
 
 func (w *Writer) DwordB(data interface{}) (int, error) {
-	return w.Write(DwordB(data))
+	return w.w.Write(DwordB(data))
 }
 
 func (w *Writer) QwordB(data interface{}) (int, error) {
-	return w.Write(QwordB(data))
+	return w.w.Write(QwordB(data))
 }
 
 func (w *Writer) String(text string) (int, error) {
-	return w.Write([]byte(text))
+	return w.w.Write([]byte(text))
 }
 
 func (w *Writer) Cstr(text string) (int, error) {
-	return w.Write(Cstr(text))
+	return w.w.Write(Cstr(text))
 }
 
 func (w *Writer) Zeros(size int64) (int, error) {
-	return w.Write(Zeros(size))
+	return w.w.Write(Zeros(size))
 }

@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 )
 
-type Converter func(interface{}) []byte
+type WordConv func(interface{}) []byte
 
 func Byte(data interface{}) (bin []byte) {
 	switch n := data.(type) {
@@ -151,8 +151,4 @@ func DwordB(data interface{}) []byte {
 
 func QwordB(data interface{}) []byte {
 	return qword(data, binary.BigEndian)
-}
-
-func Cstr(text string) []byte {
-	return append([]byte(text), 0)
 }
